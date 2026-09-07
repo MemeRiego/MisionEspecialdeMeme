@@ -2,6 +2,7 @@ const scenes = [...document.querySelectorAll('.scene')];
 let currentScene = 0;
 let noAttempts = 0;
 let chosenPlan = null;
+let notNowNotified = false;
 
 const loveLoader = document.getElementById('loveLoader');
 const startButton = document.getElementById('startButton');
@@ -168,6 +169,32 @@ document.getElementById('timeButton').addEventListener('click', () => {
   document.getElementById('noMessage').textContent = 'Está bien, de verdad. No tenés que decidir nada ahora. El cariño no tiene temporizador.';
   yesButton.style.transform = 'scale(1)';
   noButton.style.display = 'none';
+
+  if (notNowNotified) return;
+  notNowNotified = true;
+
+  const notification = new FormData();
+  const clickedAt = new Intl.DateTimeFormat('es-AR', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'America/Argentina/Buenos_Aires'
+  }).format(new Date());
+  notification.append('Respuesta', 'Ahora no');
+  notification.append('Momento', clickedAt);
+  notification.append('Mensaje', 'Naza presionó “Ahora no”. Prefiere decidir la fecha más adelante.');
+  notification.append('_subject', '♡ Naza eligió “Ahora no”');
+
+  fetch('https://formspree.io/f/xvkowwvn', {
+    method: 'POST',
+    body: notification,
+    headers: { Accept: 'application/json' }
+  })
+    .then((response) => {
+      if (!response.ok) notNowNotified = false;
+    })
+    .catch(() => {
+      notNowNotified = false;
+    });
 });
 
 const dateInput = document.getElementById('dateInput');
