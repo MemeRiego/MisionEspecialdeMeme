@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff7eae" />
+    <meta name="description" content="Una pequeña misión llena de corazones preparada especialmente para Naza." />
+    <title>Una misión especial para Naza ♡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="loading-active">
+    <div class="love-loader" id="loveLoader" role="dialog" aria-modal="true" aria-labelledby="loveLoaderTitle">
+      <div class="loader-card">
+        <div class="loader-heart" aria-hidden="true">♥</div>
+        <p class="overline">PREPARANDO MISIÓN</p>
+        <h1 id="loveLoaderTitle">Cargando con mucho amor...</h1>
+        <div class="love-progress" aria-hidden="true"><i></i></div>
+        <p class="loader-status" id="loaderStatus" aria-live="polite">Juntando corazones y referencias cuestionables</p>
+        <button class="game-button primary loader-start" id="startButton" type="button">Iniciar <span>♡</span></button>
+      </div>
+    </div>
+    <div class="sky-hearts" id="skyHearts" aria-hidden="true"></div>
+    <main class="game-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-heart">♥</span> DUO QUEUE</div>
+        <div class="status"><span></span> Mensaje especial disponible</div>
+      </header>
+
+      <section class="scene is-active" data-scene="0">
+        <div class="window welcome-window">
+          <div class="window-bar">
+            <span>mision_para_naza.exe</span>
+            <div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+          <div class="window-body center">
+            <div class="pixel-heart big-heart" aria-hidden="true">♥</div>
+            <p class="overline">PARTIDA ENCONTRADA</p>
+            <h1>Hola Naza,<br />vengo con una misión para vos.</h1>
+            <p class="intro-copy">Incluye corazones, referencias muy cuestionables del LoL y otras cositas más ❤️</p>
+            <button class="game-button primary" data-next>Aceptar misión <span>➜</span></button>
+            <p class="microcopy">No requiere RP · Duración aproximada: 3 minutos</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="1">
+        <div class="window hook-window">
+          <div class="window-bar"><span>habilidad_desbloqueada.log</span><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div></div>
+          <div class="window-body center hook-stage">
+            <p class="overline">BLITZCRANK LANZÓ Q</p>
+            <div class="hook-animation" aria-hidden="true">
+              <div class="robot-side"><span>⚙</span><b>BLITZ</b></div>
+              <div class="cable"><i></i></div>
+              <div class="heart-target">♥</div>
+            </div>
+            <h2>Ya no podés escapar de este mensaje.</h2>
+            <p>Bueno sí… pero finjamos que fuiste enganchado por el hook de Blitzcrank y te atrajo hacia mí.</p>
+            <button class="game-button primary" data-next>Me enganchaste, seguí</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="2">
+        <div class="window champion-window">
+          <div class="window-bar"><span>equipo_del_cariño.team</span><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div></div>
+          <div class="window-body">
+            <p class="overline">COMPOSICIÓN DE EQUIPO</p>
+            <h2>Cinco campeones intentan explicar algo bastante simple</h2>
+            <p class="section-copy">Tocá cada carta para activar su habilidad.</p>
+            <div class="champion-grid">
+              <button class="champ-card blitz" data-champ="blitz"><span class="champ-icon">⚙</span><b>Blitzcrank</b><small>Hook asegurado</small><em>Una vez que te agarra no te suelta, al igual que yo, mi cariño tiene mucho agarre.</em></button>
+              <button class="champ-card lux" data-champ="lux"><span class="champ-icon">✦</span><b>Lux</b><small>Chispita final</small><em>Sos de esas personas que hacen que hasta un día feo tenga un poquito más de luz.</em></button>
+              <button class="champ-card mel" data-champ="mel"><span class="champ-icon">◈</span><b>Mel</b><small>Reflejo dorado</small><em>Si intentás devolverme este mensaje, vuelve con el doble de cariño.</em></button>
+              <button class="champ-card jhin" data-champ="jhin"><span class="champ-icon">IV</span><b>Jhin</b><small>Cuatro actos</small><em>Uno: La cagué. Dos: Me siento terrible. Tres: Hice una web. Cuatro: Te quiero demasiado.</em></button>
+              <button class="champ-card sera" data-champ="sera"><span class="champ-icon">♫</span><b>Seraphine</b><small>Nota compartida</small><em>Vos hacés que hasta mis días en mute suenen un poquito mejor.</em></button>
+            </div>
+            <div class="team-progress"><span id="champCount">0</span>/5 habilidades activadas</div>
+            <button class="game-button primary" id="teamNext" data-next disabled>Equipo completo: continuar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="3">
+        <div class="window collect-window">
+          <div class="window-bar"><span>cargar_definitiva.minigame</span><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div></div>
+          <div class="window-body center">
+            <p class="overline">MINIJUEGO BONIFICACIÓN</p>
+            <h2>Cargá la definitiva del cariño</h2>
+            <p>Atrapá diez corazones. Prometo que tienen mejor hitbox que mis habilidades.</p>
+            <div class="heart-arena" id="heartArena" aria-label="Minijuego: atrapá diez corazones">
+              <button class="catch-heart h1" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h2" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h3" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h4" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h5" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h6" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h7 runner-heart" data-runner aria-label="Atrapar corazón escurridizo">♥</button>
+              <button class="catch-heart h8" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h9" aria-label="Atrapar corazón">♥</button>
+              <button class="catch-heart h10" aria-label="Atrapar corazón">♥</button>
+              <div class="ultimate" id="ultimate"><span id="heartCount">0</span>/10 · CARGANDO...</div>
+            </div>
+            <button class="game-button primary" id="heartNext" data-next disabled>Definitiva lista ♡</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="4">
+        <div class="invite-card">
+          <div class="mail-icon" aria-hidden="true">♥</div>
+          <p class="overline">NUEVA INVITACIÓN</p>
+          <h2>Te invito a una cita.</h2>
+          <p>Puede contener comida rica, risas y una compañía que va a esforzarse mucho.</p>
+          <h3>¿Aceptás?</h3>
+          <div class="choice-zone" id="choiceZone">
+            <button class="game-button yes-button" id="yesButton">Sí, acepto ♡</button>
+            <button class="game-button no-button" id="noButton">No</button>
+          </div>
+          <button class="time-link" id="timeButton">Hablando en serio: todavía necesito tiempo</button>
+          <p class="no-message" id="noMessage" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="5">
+        <div class="window calendar-window">
+          <div class="window-bar"><span>agenda_de_duo.calendar</span><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div></div>
+          <div class="window-body">
+            <p class="overline">INVITACIÓN ACEPTADA</p>
+            <h2>Elegí cuándo empieza nuestra próxima aventura</h2>
+            <p class="section-copy">La sorpresa la organizo yo. Vos solamente elegí una fecha y un horario posibles.</p>
+            <form id="dateForm" class="date-form">
+              <label class="honeypot" aria-hidden="true"><span>No completar</span><input type="text" id="websiteInput" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+              <label><span>Fecha</span><input type="date" id="dateInput" required /></label>
+              <label><span>Hora</span><input type="time" id="timeInput" required /></label>
+              <label><span>Tipo de misión</span>
+                <select id="planInput">
+                  <option value="Sorpresa total">Sorpresa total</option>
+                  <option value="Comida rica">Comida rica</option>
+                  <option value="Merienda y paseo">Merienda y paseo</option>
+                  <option value="Noche de jueguitos">Noche de jueguitos</option>
+                </select>
+              </label>
+              <button class="game-button primary full" id="confirmDateButton" type="submit">Confirmar nuestra duo queue</button>
+            </form>
+            <p class="form-error" id="formError" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene" data-scene="6">
+        <div class="window final-window">
+          <div class="window-bar"><span>mensaje_final.txt</span><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div></div>
+          <div class="window-body center">
+            <div class="victory-badge">VICTORIA</div>
+            <div class="final-heart" aria-hidden="true">♥</div>
+            <h2>Gracias por darme la oportunidad.</h2>
+            <div class="final-message">
+              <p>No espero que esta página haga que me perdones ni que borre mi descuido.</p>
+              <p>Solamente espero que me permitas demostrarte que, aunque me haya olvidado de una fecha importante, <strong>vos realmente me importás.</strong></p>
+              <p>Quiero compensarlo con tiempo, cariño y acciones. No porque tenga que cumplir una misión, sino porque de verdad quiero verte feliz.</p>
+            </div>
+            <div class="plan-summary" id="planSummary"></div>
+            <button class="game-button calendar-button" id="calendarButton">Agregar cita al calendario</button>
+            <p class="signature">Con mucho cariño,<br /><strong>Meme ♡</strong></p>
+            <button class="restart-button" id="restartButton">Volver a jugar</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="heart-explosion" id="heartExplosion" aria-hidden="true">
+      <span>♥</span><span>♡</span><span>♥</span><span>♥</span><span>♡</span><span>♥</span><span>♡</span><span>♥</span><span>♥</span><span>♡</span><span>♥</span><span>♥</span>
+      <strong>¡CITA ACEPTADA!</strong>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
